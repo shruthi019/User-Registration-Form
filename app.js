@@ -3,10 +3,6 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-// const bcrypt = require('bcryptjs');
-
-
-//const AuthRoute = require('./routes/auth');
 
 app.use('/public', express.static(path.join(__dirname, 'static')));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -25,19 +21,9 @@ app.get('/', (req, res)=>{
 	res.sendFile(path.join(__dirname, 'static', 'index.html'));
 });
 
-// app.get('/example',(req, res)=>{
-// 	res.send('hitting example');
-// });
-
-// app.get('/example/:name/:age', (req, res)=>{
-// 	console.log(req.params);
-// 	console.log(req.query);
-// 	res.send(req.params.name + " :" + req.params.age);
-// });
-
 app.post('/', (req,res)=>{
-	console.log(req.body);
-	var name = req.body.name; 
+    console.log(req.body);
+    var name = req.body.name; 
     var email =req.body.email;
     var college = req.body.college;
     var year = req.body.year; 
@@ -59,4 +45,3 @@ app.post('/', (req,res)=>{
 })
 
 app.listen(3000);
-//app.use('/api', AuthRoute);
